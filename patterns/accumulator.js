@@ -23,6 +23,19 @@ export function sumToN(n) {
  */
 export function factorial(n) {
   // TODO
+  if (typeof n !== "number") {
+    return NaN;
+  }
+
+  if (n < 0) {
+    return undefined;
+  }
+
+  let res = 1;
+  for (let i = 1; i <= n; i++) {
+    res *= i;
+  }
+  return res;
 }
 
 /**
@@ -33,6 +46,19 @@ export function factorial(n) {
  */
 export function buildNArray(n) {
   // TODO
+  if (typeof n !== "number") {
+    return null;
+  }
+
+  if (n <= 0) {
+    return [];
+  }
+
+  let arrN = [];
+  for (let i = 1; i <= n; i++) {
+    arrN.push(i);
+  }
+  return arrN;
 }
 
 /**
@@ -41,6 +67,17 @@ export function buildNArray(n) {
  */
 export function getLongestString(strings) {
   // TODO
+  if (strings.length === 0) {
+    return "";
+  }
+
+  let longestString = "";
+  for (let i = 0; i < strings.length; i++) {
+    if (strings[i].length > longestString.length) {
+      longestString = strings[i];
+    }
+  }
+  return longestString;
 }
 
 /**
@@ -49,6 +86,7 @@ export function getLongestString(strings) {
  */
 export function countPresent(attendance) {
   // TODO
+  return attendance.filter((p) => p === true).length;
 }
 
 /**
@@ -63,4 +101,26 @@ export function countPresent(attendance) {
  */
 export function complementDNA(dna) {
   // TODO
+  if (typeof dna !== "string") {
+    return null;
+  }
+
+  if (dna.length === 0) {
+    return "";
+  }
+
+  const complements = {
+    A: "T",
+    T: "A",
+    C: "G",
+    G: "C",
+  };
+  let result = "";
+
+  for (let i = 0; i < dna.length; i++) {
+    const char = dna[i];
+    result += complements[char];
+  }
+
+  return result;
 }
